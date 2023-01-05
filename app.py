@@ -2,17 +2,21 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import pandas_datareader as data
-import yfinance as yf
-yf.pdr_override()
+
 from keras.models import  load_model
 import streamlit as st
+
 start = "2010-01-01"
 end = "2019-12-31"
 
 st.title('Stock Trend Prediction')
 
 user_input = st.text_input('Enter Stock Ticker','AAPL')
-df= data.DataReader(user_input,'yahoo',start,end)
+try:
+    df = data.DataReader(user_input, 'yahoo', start, end)
+except Exception as ex:
+                print('Error:', ex)
+
 
 #describing Data
 
