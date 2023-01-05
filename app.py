@@ -2,6 +2,8 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import pandas_datareader as data
+import yfinance as yf
+yf.pdr_override()
 from keras.models import  load_model
 import streamlit as st
 start = "2010-01-01"
